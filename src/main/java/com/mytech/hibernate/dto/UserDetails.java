@@ -75,8 +75,10 @@ public class UserDetails {
 	/**
 	 * (point#3) Bidierectional relationship with manytomany eg: if user has rented vehicle, where he can more than one vehicle and same vehicles can be hired by other user too
 	 * here it will create two mapping - it wont be knowing both are same so extra tables have been created for index which is redundant mapping.
+	 * 
 	 * Hibernate: insert into USER_DETAILS_Vehicle (USER_DETAILS_USER_ID, vehicleList_VEHICLE_ID) values (?, ?)
 	 * Hibernate: insert into Vehicle_USER_DETAILS (Vehicle_VEHICLE_ID, userList_USER_ID) values (?, ?)
+	 * 
 	 * We can tell hibernate that parent class mapping to child at child also will say in the column of child mapped by column name in the parent class.
 	 * SO here when parents get save then userId, vehilceId in it so will go to child class and will say it has mapped in parent.
 	 * Since parent class is going to save so will give table and column/inverse column names in parent class only. 
